@@ -5,7 +5,7 @@
 
 .reveal .reveal-toolbar.reveal-toolbar-bottom {
     bottom: 23px;
-}    
+}
 .reveal .reveal-toolbar.reveal-toolbar-top {
     top: 23px;
 }
@@ -13,18 +13,21 @@
 .reveal .reveal-toolbar .reveal-toolbar-button {
     display: inline-block;
     color: white;
-    font-size: .55em;
-    border: #434343 2px solid;
-    border-radius: 12px;
-    background-color: #141414;
-    width: 30px;
+    font-size: 18px;
+    border-radius: 50%;
+    background-color: rgba(55, 55, 55, 0.8);
+    width: 20px;
+    height: 20px;
     text-align: center;
     padding: 8px;
     margin: 0 4px;
+    opacity: 0.3;
+    transition: opacity 133ms ease;
 }
 
 .reveal .reveal-toolbar .reveal-toolbar-button:hover {
     color: #ffffff;
+    opacity: 1;
 }
 
 .hidden {

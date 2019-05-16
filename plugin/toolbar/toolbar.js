@@ -4,7 +4,7 @@
  * (c) Greg Denehy 2017
  */
 
-/* TODO: 
+/* TODO:
  * 		- Fix issue with toolbar access after using overview button
  *		- Reimplement auto slide button to allow restyling ?
  * 		- Notes ?
@@ -22,7 +22,7 @@ var RevealToolbar = window.RevealToolbar || (function(){
 	}
 	var loadIcons = options.loadIcons;
 	if (typeof loadIcons === "undefined") loadIcons = true;
-	
+
 	// Cached references to DOM elements
 	var dom = {};
 
@@ -35,155 +35,152 @@ var RevealToolbar = window.RevealToolbar || (function(){
 			}
 		})
 	});
-	
+
 	function loadPlugin() {
-		// does not support IE8 or below
-		if (!head.browser.ie || head.browser.version >= 9) {
-			function option(opt, def) {
-				if (typeof opt === "undefined") return def;
-				return opt;
-			}
-
-			//
-			// Set option defaults
-			//
-			var position = option(options.position, 'bottom');	// 'top' or 'bottom'
-			var showFullscreen = option(options.fullscreen, false);
-			var showOverview = option(options.overview, false);
-			var showPause = option(options.pause, false);
-			var showNotes = option(options.notes, false);
-			var showHelp = option(options.help, false);
-			var captureMenu = option(options.captureMenu, true);
-			var capturePlaybackControl = option(options.capturePlaybackControl, true);
-
-			// Cache references to key DOM elements
-			dom.reveal = document.querySelector( '.reveal' );
-			dom.toolbar = document.querySelector( '.reveal-toolbar' );
-
-			if (!dom.toolbar) {
-				dom.toolbar = createNode( dom.reveal, 'div', 'reveal-toolbar', null );
-			} else {
-				// move the existing toolbar after the other Reveal components
-				dom.reveal.appendChild(dom.toolbar);
-			}
-
-			dom.toolbar.classList.add( (position == 'top' ? 'reveal-toolbar-top' : 'reveal-toolbar-bottom') );
-			
-			function createToolbarButton(icon, cb) {
-				var button = createNode(dom.toolbar, 'a', 'reveal-toolbar-button', null);
-				button.setAttribute('href', '#');
-				button.onclick = function(event) {
-					event.preventDefault();
-					cb(event);
-				}
-				createNode(button, 'i', ['fa', icon]);
-				return button;
-			}
-
-			if (showOverview) {
-				dom.overviewButton = createToolbarButton('fa-th-large', Reveal.toggleOverview);
-			}
-			
-			if (showHelp) {
-				dom.helpButton = createToolbarButton('fa-question', Reveal.toggleHelp);
-			}			
-
-			if (showNotes && !Reveal.isSpeakerNotes()) {
-				// createToolbarButton('fa-list-alt', function() { if (RevealNotes) { RevealNotes.open() } });
-				createToolbarButton('fa-list-alt', function() { Reveal.triggerKey(83) });
-			}
-
-			if (showFullscreen) {
-				dom.fullscreenButton = createToolbarButton('fa-expand', function() { 
-					if (screenfull.enabled) {
-						screenfull.toggle(document.documentElement);
-					}
-				});
-			}
-
-			// set fullscreen button icon to match fullscreen state
-			if (screenfull.enabled) {
-				screenfull.on('change', function() {
-					var icon = dom.fullscreenButton.querySelector('i');
-					icon.classList.remove(screenfull.isFullscreen ? 'fa-expand' : 'fa-compress');
-					icon.classList.add(screenfull.isFullscreen ? 'fa-compress' : 'fa-expand');
-				});
-			}
-
-			if (showPause) {
-				dom.pauseButton = createToolbarButton('fa-eye-slash', Reveal.togglePause);
-				dom.pauseButton.classList.add('reveal-toolbar-pause-button');
-				Reveal.addEventListener( 'paused', function() {
-					var icon = dom.pauseButton.querySelector('i');
-					icon.classList.remove('fa-eye-slash');
-					icon.classList.add('fa-eye');
-				});
-				Reveal.addEventListener( 'resumed', function() {
-					var icon = dom.pauseButton.querySelector('i');
-					icon.classList.remove('fa-eye');
-					icon.classList.add('fa-eye-slash');
-				});
-			}
-
-			if (captureMenu) {
-				// handle async loading of plugins
-				var id_menu = setInterval(function() {
-					if (RevealMenu && RevealMenu.isInit()) {
-						dom.menu = document.querySelector('div.slide-menu-button');
-						if (dom.menu) {
-							console.log("Moving menu button");
-							dom.toolbar.insertBefore(dom.menu, dom.toolbar.firstChild);
-							dom.menu.classList.add('reveal-toolbar-button');
-						}
-						clearInterval(id_menu);
-					}
-				}, 50);
-			}
-
-			if (capturePlaybackControl) {
-				dom.playback = document.querySelector('canvas.playback');
-				if (dom.playback) {
-					console.log("Moving playback control");
-					dom.toolbar.appendChild(dom.playback);
-				}
-			}
-
-			// place default footer stylesheet before first footer stylesheet to ensure footer styles override defaults
-			var defaultStylesheet = document.querySelector( '#toolbar-defaults' );
-			var themeStylesheet = document.querySelector( '.toolbar-theme' );
-			if (themeStylesheet) {
-				themeStylesheet.parentElement.insertBefore(defaultStylesheet, themeStylesheet);
-			}
-
-			/**
-			 * Extend object a with the properties of object b.
-			 * If there's a conflict, object b takes precedence.
-			 */
-			function extend( a, b ) {
-				for( var i in b ) {
-					a[ i ] = b[ i ];
-				}
-			}
-
-			/**
-			 * Dispatches an event of the specified type from the
-			 * reveal DOM element.
-			 */
-			function dispatchEvent( type, args ) {
-				var event = document.createEvent( 'HTMLEvents', 1, 2 );
-				event.initEvent( type, true, true );
-				extend( event, args );
-				document.querySelector('.reveal').dispatchEvent( event );
-
-				// If we're in an iframe, post each reveal.js event to the
-				// parent window. Used by the notes plugin
-				if( config.postMessageEvents && window.parent !== window.self ) {
-					window.parent.postMessage( JSON.stringify({ namespace: 'reveal', eventName: type, state: getState() }), '*' );
-				}
-			}
-
-			dispatchEvent('toolbar-ready');
+		function option(opt, def) {
+			if (typeof opt === "undefined") return def;
+			return opt;
 		}
+
+		//
+		// Set option defaults
+		//
+		var position = option(options.position, 'bottom');	// 'top' or 'bottom'
+		var showFullscreen = option(options.fullscreen, false);
+		var showOverview = option(options.overview, false);
+		var showPause = option(options.pause, false);
+		var showNotes = option(options.notes, false);
+		var showHelp = option(options.help, false);
+		var captureMenu = option(options.captureMenu, true);
+		var capturePlaybackControl = option(options.capturePlaybackControl, true);
+
+		// Cache references to key DOM elements
+		dom.reveal = document.querySelector( '.reveal' );
+		dom.toolbar = document.querySelector( '.reveal-toolbar' );
+
+		if (!dom.toolbar) {
+			dom.toolbar = createNode( dom.reveal, 'div', 'reveal-toolbar', null );
+		} else {
+			// move the existing toolbar after the other Reveal components
+			dom.reveal.appendChild(dom.toolbar);
+		}
+
+		dom.toolbar.classList.add( (position == 'top' ? 'reveal-toolbar-top' : 'reveal-toolbar-bottom') );
+
+		function createToolbarButton(icon, cb) {
+			var button = createNode(dom.toolbar, 'a', 'reveal-toolbar-button', null);
+			button.setAttribute('href', '#');
+			button.onclick = function(event) {
+				event.preventDefault();
+				cb(event);
+			}
+			createNode(button, 'i', ['fa', icon]);
+			return button;
+		}
+
+		if (showOverview) {
+			dom.overviewButton = createToolbarButton('fa-th-large', Reveal.toggleOverview);
+		}
+
+		if (showHelp) {
+			dom.helpButton = createToolbarButton('fa-question', Reveal.toggleHelp);
+		}
+
+		if (showNotes && !Reveal.isSpeakerNotes()) {
+			// createToolbarButton('fa-list-alt', function() { if (RevealNotes) { RevealNotes.open() } });
+			createToolbarButton('fa-list-alt', function() { Reveal.triggerKey(83) });
+		}
+
+		if (showFullscreen) {
+			dom.fullscreenButton = createToolbarButton('fa-expand', function() {
+				if (screenfull.enabled) {
+					screenfull.toggle(document.documentElement);
+				}
+			});
+		}
+
+		// set fullscreen button icon to match fullscreen state
+		if (screenfull.enabled) {
+			screenfull.on('change', function() {
+				var icon = dom.fullscreenButton.querySelector('i');
+				icon.classList.remove(screenfull.isFullscreen ? 'fa-expand' : 'fa-compress');
+				icon.classList.add(screenfull.isFullscreen ? 'fa-compress' : 'fa-expand');
+			});
+		}
+
+		if (showPause) {
+			dom.pauseButton = createToolbarButton('fa-eye-slash', Reveal.togglePause);
+			dom.pauseButton.classList.add('reveal-toolbar-pause-button');
+			Reveal.addEventListener( 'paused', function() {
+				var icon = dom.pauseButton.querySelector('i');
+				icon.classList.remove('fa-eye-slash');
+				icon.classList.add('fa-eye');
+			});
+			Reveal.addEventListener( 'resumed', function() {
+				var icon = dom.pauseButton.querySelector('i');
+				icon.classList.remove('fa-eye');
+				icon.classList.add('fa-eye-slash');
+			});
+		}
+
+		if (captureMenu) {
+			// handle async loading of plugins
+			var id_menu = setInterval(function() {
+				if (RevealMenu && RevealMenu.isInit()) {
+					dom.menu = document.querySelector('div.slide-menu-button');
+					if (dom.menu) {
+						console.log("Moving menu button");
+						dom.toolbar.insertBefore(dom.menu, dom.toolbar.firstChild);
+						dom.menu.classList.add('reveal-toolbar-button');
+					}
+					clearInterval(id_menu);
+				}
+			}, 50);
+		}
+
+		if (capturePlaybackControl) {
+			dom.playback = document.querySelector('canvas.playback');
+			if (dom.playback) {
+				console.log("Moving playback control");
+				dom.toolbar.appendChild(dom.playback);
+			}
+		}
+
+		// place default footer stylesheet before first footer stylesheet to ensure footer styles override defaults
+		var defaultStylesheet = document.querySelector( '#toolbar-defaults' );
+		var themeStylesheet = document.querySelector( '.toolbar-theme' );
+		if (themeStylesheet) {
+			themeStylesheet.parentElement.insertBefore(defaultStylesheet, themeStylesheet);
+		}
+
+		/**
+		 * Extend object a with the properties of object b.
+		 * If there's a conflict, object b takes precedence.
+		 */
+		function extend( a, b ) {
+			for( var i in b ) {
+				a[ i ] = b[ i ];
+			}
+		}
+
+		/**
+		 * Dispatches an event of the specified type from the
+		 * reveal DOM element.
+		 */
+		function dispatchEvent( type, args ) {
+			var event = document.createEvent( 'HTMLEvents', 1, 2 );
+			event.initEvent( type, true, true );
+			extend( event, args );
+			document.querySelector('.reveal').dispatchEvent( event );
+
+			// If we're in an iframe, post each reveal.js event to the
+			// parent window. Used by the notes plugin
+			if( config.postMessageEvents && window.parent !== window.self ) {
+				window.parent.postMessage( JSON.stringify({ namespace: 'reveal', eventName: type, state: getState() }), '*' );
+			}
+		}
+
+		dispatchEvent('toolbar-ready');
 	};
 
 	// modified from math plugin
@@ -272,7 +269,7 @@ var RevealToolbar = window.RevealToolbar || (function(){
 					node.classList.add(c);
 				})
 			} else {
-				node.classList.add( classname );		
+				node.classList.add( classname );
 			}
 		}
 		if( typeof innerHTML === 'string' ) {
