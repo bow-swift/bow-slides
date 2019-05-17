@@ -8,10 +8,10 @@
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/bow.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+		<link rel="stylesheet" href="lib/css/kimbie.dark.css" id="hljs-theme">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -39,6 +39,8 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				progress: true,
+				history : true,
 				menu: {
 					// Specifies which side of the presentation the menu will
 					// be shown. Use 'left' or 'right'.
@@ -91,7 +93,20 @@
 					//     { name: 'White', theme: 'css/theme/white.css' },
 					//     { name: 'League', theme: 'css/theme/league.css' }
 					// ]
-					themes: true,
+					themes:  [
+						{ name: 'Beige', theme: 'css/theme/beige.css' },
+						{ name: 'Black', theme: 'css/theme/black.css' },
+						{ name: 'Blood', theme: 'css/theme/blood.css' },
+						{ name: 'Bow', theme: 'css/theme/bow.css' },
+						{ name: 'League', theme: 'css/theme/league.css' },
+						{ name: 'Moon', theme: 'css/theme/moon.css' },
+						{ name: 'Night', theme: 'css/theme/night.css' },
+						{ name: 'Serif', theme: 'css/theme/serif.css' },
+						{ name: 'Simple', theme: 'css/theme/simple.css' },
+						{ name: 'Sky', theme: 'css/theme/sky.css' },
+						{ name: 'Solarized', theme: 'css/theme/solarized.css' },
+						{ name: 'White', theme: 'css/theme/white.css' }
+					],
 
 					// Specifies the path to the default theme files. If your
 					// presentation uses a different path to the standard reveal

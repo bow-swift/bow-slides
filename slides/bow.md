@@ -10,7 +10,7 @@
 1. An introduction to __ΛRROW__
 2. __Top 5__ Kotlin features FP programmers love
 4. The __Kotlin Suspension__ system
-4. __Fx__. A solution for building typed FP programs in Kotlin
+4. __Fx__. A solution for building typed FP programs in Swift
 
 ---
 
@@ -77,9 +77,15 @@ by Jeremy Yallop and Leo White
 
 Once we have a `Kind` representation we can provide `extensions`
 
-```kotlin
-interface Functor<F> {
-  fun <A, B> Kind<F, A>.map(f: (A) -> B): Kind<F, B>
+```swift
+func allIntsEqual(_ array: [Int]) -> Bool {
+    guard let first = array.first else { return false }
+    return array.reduce(true) { partial, next in partial && next == first }
+}
+
+func allStringsEqual(_ array: [String]) -> Bool {
+    guard let first = array.first else { return false }
+    return array.reduce(true) { partial, next in partial && next == first }
 }
 ```
 
@@ -87,10 +93,19 @@ interface Functor<F> {
 
 This will export all extensions functions declared in `Functor` into `IO`
 
-```kotlin
-@extension interface IOFunctor : Functor<ForIO> {
-  override fun <A, B> Kind<ForIO, A>.map(f: (A) -> B): IO<B> =
-    fix().map(f)
+```swift
+enum DivideError: Error {
+    case divisionByZero
+}
+
+func divideEither(x: Int, y: Int) -> Either<DivideError, Int> {
+    guard y != 0 else { return .left(.divisionByZero) }
+    return .right(x / y)
+}
+
+func divideValidated(x: Int, y: Int) -> Validated<DivideError, Int> {
+    guard y != 0 else { return .invalid(.divisionByZero) }
+    return .valid(x / y)
 }
 ```
 
@@ -176,7 +191,7 @@ Data types may provide extensions for type classes based on capabilities:
 
 __Top 5__
 
-Features Kotlin offers to FP
+Features Swift offers to FP
 
 ---
 
@@ -198,14 +213,11 @@ Features Kotlin offers to FP
 
 `?` Nullable Types
 
-```kotlin
-fun main() {
-println({
-//sampleStart
-val name: String? = null
-name.toUpperCase() //unsafe, won't compile
-//sampleEnd
-}())
+```swift
+func divide<F: ErrorSuccessRepresentable>(x: Int, y: Int) -> F<DivideError, Int> {
+   guard y != 0 else { return .failure(.divisionByZero)
+   return .success(x / y)
+}
 }
 ```
 
