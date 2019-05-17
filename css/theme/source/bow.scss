@@ -52,3 +52,9 @@ section.has-light-background {
 .reveal pre code {
 	padding: 15px;
 }
+
+.reveal section img {
+	background: none;
+	border: none;
+	box-shadow: none;
+}
