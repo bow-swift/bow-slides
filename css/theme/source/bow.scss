@@ -58,3 +58,11 @@ section.has-light-background {
 	border: none;
 	box-shadow: none;
 }
+
+.reveal table {
+	max-height: 40vh;
+	overflow: auto;
+	display: inline-block;
+	max-width: 40vw;
+	font-size: 60%;
+}
