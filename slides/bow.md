@@ -1,48 +1,42 @@
 ## Who am I?
 
-- [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
-- Typed FP advocate (for all languages)
+- [@47er](https://twitter.com/47er), I'm working in [@47deg](https://twitter.com/47deg)
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 ---
 
 ## Agenda
 
-1. An introduction to __ΛRROW__
-2. __Top 5__ Kotlin features FP programmers love
-4. The __Kotlin Suspension__ system
-4. __Fx__. A solution for building typed FP programs in Swift
+1. An introduction to __Bow__
+2. __Top 5__ Swift features FP programmers love
+4. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+4. __Fx__. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
 
 ---
 
-An introduction to __ΛRROW__
+An introduction to __Bow__
 
 ---
 
-ΛRROW started as learning exercise in the spanish Android Community Slack
+Bow started as lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
 
-![inline](img/47-brand-red.png)
+<img src="img/47-brand-red.png" width="200">
 
 ---
 
-...at the time it was called KΛTEGORY and we had the coolest logo ever!
+...Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 
 ![Kategory](img/47-brand-white.png)
 
 ---
 
-The name was cool but the community was more important
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
 
-![Mario & Raul](img/47-logo.png)
-
----
-
-ΛRROW = KΛTEGORY + Funktionale
-
-![Arrow](img/bow-brand-color.png)
+![Bow](img/bow-brand-color.png)
 
 ---
 
-ΛRROW includes popular FP data types...
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum...
 
 |                |                                                      |
 |----------------|------------------------------------------------------|
@@ -58,7 +52,7 @@ The name was cool but the community was more important
 
 ---
 
-Kotlin lacks higher kinded types and real type classes
+__Lorem__ ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 Emulating __higher kinded types__ is based on `defunctionalization`
 [__Lightweight higher-kinded polymorphism__](https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf)
@@ -130,18 +124,6 @@ func divideValidated(x: Int, y: Int) -> Validated<DivideError, Int> {
 
 ---
 
-| arrow-core |
-| --- |
-| ![Core type classes](css/images/core-typeclasses.png) |
-
----
-
-| arrow-effects |
-| --- |
-| ![Efects Type Classes](css/images/effects-typeclasses.png) |
-
----
-
 Data types may provide extensions for type classes based on capabilities:
 
 | Type class | Combinators | **List** |
@@ -159,20 +141,22 @@ Data types may provide extensions for type classes based on capabilities:
 
 Data types may provide extensions for type classes based on capabilities:
 
-| Type class | Combinators | **List** | **Either** | **Deferred** | **IO** |
-| --- | --- | --- | --- | --- | --- |
-| Functor | map, lift | ✓ | ✓ | ✓ | ✓ |
-| Applicative | pure, ap | ✓ | ✓ | ✓ | ✓ |
-| ApplicativeError | raiseError, catch | ✕ | ✓ | ✓ | ✓ |
-| Monad | flatMap, flatten | ✓ | ✓ | ✓ | ✓ |
-| MonadError | ensure, rethrow | ✕ | ✓ | ✓ | ✓ |
-| MonadDefer | delay, suspend | ✕ | ✕ | ✓ | ✓ |
-| Async | async | ✕ | ✕ | ✓ | ✓ |
-| Effect | runAsync | ✕ | ✕ | ✓ | ✓ |
+| Type class | Combinators | **List** | **Either** |
+| --- | --- | --- | --- |
+| Functor | map, lift | ✓ | ✓ |
+| Applicative | pure, ap | ✓ | ✓ |
+| ApplicativeError | raiseError, catch | ✕ | ✓ |
+| Monad | flatMap, flatten | ✓ | ✓ |
+| MonadError | ensure, rethrow | ✕ | ✓ |
+| MonadDefer | delay, suspend | ✕ | ✕ |
+| Async | async | ✕ | ✕ |
+| Effect | runAsync | ✕ | ✕ |
 
 ---
 
-ΛRROW is modular ![Android waving](css/images/android-waving.png)
+__Bow__ is modular
+
+![bow-feature-icon-tertiary](img/bow-feature-icon-primary.svg)
 
 | Module            | Contents                                                              |
 |-------------------|-----------------------------------------------------------------------|
@@ -195,23 +179,43 @@ Features Swift offers to FP
 
 ---
 
-## 5
-
-`?` Nullable Types
+## Nullable Types
 
 ---
 
-`?` Nullable Types
+## Nullable Types
 
-![inline](css/images/kotlin-types.png)
+![Feature icon primary](img/bow-feature-icon-primary.svg)
 
 [http://natpryce.com/articles/000818.html](http://natpryce.com/articles/000818.html)
 
+---
 
+## Nullable Types
+
+![Feature icon primary](img/bow-feature-icon-secondary.svg)
+
+[http://natpryce.com/articles/000818.html](http://natpryce.com/articles/000818.html)
 
 ---
 
-`?` Nullable Types
+## Nullable Types
+
+![Feature icon primary](img/bow-feature-icon-tertiary.svg)
+
+[http://natpryce.com/articles/000818.html](http://natpryce.com/articles/000818.html)
+
+---
+
+## Nullable Types
+
+![Feature icon primary](img/bow-feature-icon-quarter.svg)
+
+[http://natpryce.com/articles/000818.html](http://natpryce.com/articles/000818.html)
+
+---
+
+## Nullable Types
 
 ```swift
 func divide<F: ErrorSuccessRepresentable>(x: Int, y: Int) -> F<DivideError, Int> {
@@ -223,21 +227,23 @@ func divide<F: ErrorSuccessRepresentable>(x: Int, y: Int) -> F<DivideError, Int>
 
 ---
 
-KEEP-87
+## Lorem ipsum
 
-The ΛRROW team plans to submit this proposal at the end of Q1 2019 once it's solid and it has properly addressed feedback from the community and the jetbrains compiler team.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
 ---
 
-Credits
+## Credits
 
-ΛRROW is inspired by great libraries that have proven useful to the FP community:
+Bow is inspired by great libraries that have proven useful to the FP community:
 
 - [Cats](https://typelevel.org/cats/)
 - [Scalaz](https://github.com/scalaz/scalaz)
 - [Mu](http://higherkindness.io/mu/)
 - [Monocle](http://julien-truffaut.github.io/Monocle/)
-- [Funktionale](https://github.com/MarioAriasC/funKTionale)
+- [Arrow](https://github.com/arrow-kt/arrow)
 
 ---
 
@@ -245,17 +251,17 @@ Credits
 
 |        |                                                 |
 |--------|-------------------------------------------------|
-| Github | https://github.com/arrow-kt             |
-| Slack  | https://kotlinlang.slack.com/messages/C5UPMM0A0 |
-| Gitter | https://gitter.im/arrow-kt/Lobby               |
+| Github | https://github.com/bow-swift             |
+| Gitter | https://gitter.im/bow-swift/bow               |
 
 We are beginner friendly and provide 1:1 mentoring for both users & new contributors!
-+110 Contributors and growing!
++12 Contributors and growing!
 
 ---
 
 ## Thanks!
 
-### Thanks to everyone that makes ΛRROW possible!
+### Thanks to everyone that makes Bow possible!
 
-![47 Degrees](css/images/47deg-logo.png)  ![Kotlin](css/images/kotlin.png)
+<img src="img/47deg-logo.png" height="200">
+<img src="img/bow-logo.png" height="200">
