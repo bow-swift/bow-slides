@@ -1,5 +1,70 @@
-# bow-slides
+# Bow Slides
+
 Markdown slides targeting Bow brand styling.
+
+
+## How to run
+
+From the root directory, run the following commands:
+
+```bash
+npm install
+npm start
+```
+That will automatically deploy the slides in a local web server and open it in your browser.
+
+
+## How to add new slides
+
+Go to the `index.html` file and look for the `.slides` classed element. Inside it, each `section` will be a slide.
+
+To add markdown content:
+
+* Add a markdown `file.md` file inside `slides`.
+* Reference that markdown from a section inside `index.html`, as it's done for other files.
+
+Anyway, the easiest way would probably be to modify the already created file adding your content:
+
+* Modify `slides/bow.md` with your content, using `---` as a separator for each slide.
+
+
+## PDF exporting through decktape
+
+DeckTape is a high-quality, Puppeteer based, PDF exporter for HTML presentation frameworks.
+
+DeckTape will be already installed locally as it's part of the project dependencies. If that's not the case, you can install DeckTape globally:
+
+```sh
+npm install -g decktape
+// Then use it like this
+decktape
+```
+
+Or locally:
+
+```sh
+npm install decktape
+// Then use it like this
+`npm bin`/decktape
+```
+
+DeckTape will generate a direct translation of how your presentation renders in a browser (Chromium). First thing you need to do is to have the presentation running:
+
+```sh
+npm start
+```
+
+And then you need to point `decktape` to the URL where the presentation is running, usually `http://localhost:8000/ `. The default viewport size is `1280x720`, but you can adjust it easily:
+
+```sh
+`npm bin`/decktape http://localhost:8000/ output-name.pdf --size '1920x1080'
+```
+
+You might face some layout problems depending on the content of your presentation. If that's the case, there's probably not a universal solution, but you can tweak some settings to get a good result:
+
+* Change the output viewport size. You can easily preview it by resizing your browser window to see the best route to go.
+* Use the zoom setting available in the `reveal.scss` file.
+* For further tweaking, you can play with the font sizes present in `bow.scss`.
 
 
 ---
