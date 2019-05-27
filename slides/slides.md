@@ -156,7 +156,9 @@ Data types may provide extensions for type classes based on capabilities:
 
 __Bow__ is modular
 
-![bow-feature-icon-tertiary](img/bow-feature-icon-primary.svg)
+<p>
+  <img alt="bow-feature-icon-tertiary" src="img/bow-feature-icon-primary.svg" style='width:100%; height:auto;max-width:80px'>
+</p>
 
 | Module            | Contents                                                              |
 |-------------------|-----------------------------------------------------------------------|
@@ -185,7 +187,8 @@ Features Swift offers to FP
 
 ## Nullable Types
 
-![Feature icon primary](img/bow-feature-icon-primary.svg)
+<img alt="Feature icon primary" src="img/bow-feature-icon-primary.svg" style='width:100%; height:auto;max-width:240px'>
+
 
 [http://natpryce.com/articles/000818.html](http://natpryce.com/articles/000818.html)
 
@@ -193,7 +196,8 @@ Features Swift offers to FP
 
 ## Nullable Types
 
-![Feature icon primary](img/bow-feature-icon-secondary.svg)
+<img alt="Feature icon secondary" src="img/bow-feature-icon-secondary.svg" style='width:100%; height:auto;max-width:240px'>
+
 
 [http://natpryce.com/articles/000818.html](http://natpryce.com/articles/000818.html)
 
@@ -201,7 +205,7 @@ Features Swift offers to FP
 
 ## Nullable Types
 
-![Feature icon primary](img/bow-feature-icon-tertiary.svg)
+<img alt="Feature icon tertiary" src="img/bow-feature-icon-tertiary.svg" style='width:100%; height:auto;max-width:240px'>
 
 [http://natpryce.com/articles/000818.html](http://natpryce.com/articles/000818.html)
 
@@ -209,7 +213,7 @@ Features Swift offers to FP
 
 ## Nullable Types
 
-![Feature icon primary](img/bow-feature-icon-quarter.svg)
+<img alt="Feature icon quarter" src="img/bow-feature-icon-quarter.svg" style='width:100%; height:auto;max-width:240px'>
 
 [http://natpryce.com/articles/000818.html](http://natpryce.com/articles/000818.html)
 
