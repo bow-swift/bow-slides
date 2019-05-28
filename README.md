@@ -25,7 +25,14 @@ To add markdown content:
 
 Anyway, the easiest way would probably be to modify the already created file adding your content:
 
-* Modify `slides/bow.md` with your content, using `---` as a separator for each slide.
+* Modify `slides/slides.md` with your content, using `---` as a separator for each slide.
+
+
+## Themes
+
+You can change the presentation styles depending on your talk topic, or target audience, easily through the presentation menu. If you want to make a specific theme the default one, go and set it in `index.html`.
+
+You can also adapt the background to your own tastes, please check the first slides examples to see how you can set a specific colour, blend it, or just use the theme's default background. For more info on this, refer to the [slide backgrounds](#slide-backgrounds) section.
 
 
 ## PDF exporting through decktape
