@@ -1,82 +1,96 @@
-/*
-Bow hljs style
-*/
+/* Bow syntax highlighting */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d4d0ab;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #ffa07a;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #D64054;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #ffd700;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #82DB79;
+}
+
+/* Pink */
+.hljs-title,
+.hljs-section {
+  color: #DD8589;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #DDD958;
+}
 
 .hljs {
   display: block;
   overflow-x: auto;
+  background: #594748;
+  color: #f8f8f2;
   padding: 0.5em;
-  background: rgba(233, 233, 233, 0.8);
-  color: #312d2c;
 }
 
-.hljs-tag,
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-strong,
-.hljs-name {
-  /* color: #ff4b2c; */
-  color: #5c2699;
-  /* color: #ff9c46; */
-  /* color: #4659ff; */
+.hljs-emphasis {
+  font-style: italic;
 }
 
-.hljs-code {
-  color: #46ffb2;
-}
-
-.hljs-class .hljs-title {
-  /* color: #ff4650; */
-  /* color: #ff4639; */
-  color: #555;
-}
-
-.hljs-attribute,
-.hljs-symbol,
-.hljs-regexp,
-.hljs-link {
-  color: #4659ff;
-}
-
-.hljs-string,
-.hljs-bullet,
-.hljs-subst,
-.hljs-title,
-.hljs-section,
-.hljs-emphasis,
-.hljs-type,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-tag,
-.hljs-template-variable {
-  color: #3f6e74;
-  /* color: #4659ff; */
-  /* color: #ff9c46; */
-}
-
-.hljs-comment,
-.hljs-quote,
-.hljs-deletion,
-.hljs-meta {
-  color: #75715e;
-}
-
-.hljs-number {
-  color: #4659ff;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-doctag,
-.hljs-title,
-.hljs-section,
-.hljs-type,
-.hljs-selector-id {
+.hljs-strong {
   font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
 }
