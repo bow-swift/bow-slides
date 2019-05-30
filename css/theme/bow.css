@@ -1,16 +1,14 @@
 /**
  * Bow theme for reveal.js.
  *
- * By Hakim El Hattab, http://hakim.se
+ * By 47deg, 47deg.com
  */
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,700,400italic,700italic);
 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);
-@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
 section.has-light-background {
-  color: #222;
-}
-section.has-light-background h1, section.has-light-background h2, section.has-light-background h3, section.has-light-background h4, section.has-light-background h5, section.has-light-background h6 {
-  color: #d54048; }
+  color: #222; }
+  section.has-light-background h1, section.has-light-background h2, section.has-light-background h3, section.has-light-background h4, section.has-light-background h5, section.has-light-background h6 {
+    color: #d54048; }
 
 /*********************************************
  * GLOBAL STYLES
